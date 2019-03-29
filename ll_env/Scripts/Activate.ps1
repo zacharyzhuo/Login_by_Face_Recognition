@@ -27,7 +27,7 @@ function global:deactivate ([switch]$NonDestructive) {
 
 deactivate -nondestructive
 
-$env:VIRTUAL_ENV="C:\Users\Zachary\Documents\GitHub\Login_by_Face_Recognition\ll_env"
+$env:VIRTUAL_ENV="C:\Users\chen\Documents\GitHub\Login_by_Face_Recognition\ll_env"
 
 if (! $env:VIRTUAL_ENV_DISABLE_PROMPT) {
     # Set the prompt to include the env name
