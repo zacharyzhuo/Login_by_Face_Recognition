@@ -37,7 +37,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV="C:\Users\chen\Documents\GitHub\Login_by_Face_Recognition\ll_env"
+VIRTUAL_ENV="C:\Users\Zachary\Documents\GitHub\Login_by_Face_Recognition\ll_env"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"
