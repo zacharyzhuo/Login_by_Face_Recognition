@@ -1,0 +1,21 @@
+{% extends "blogs/base.html" %}
+
+{% block content %}
+
+<p>Posts: {{ post }}</p>
+<p>{{ post.content }}</p>
+
+<p>Comments:</p>
+
+<ul>
+    {% for comment in comments %}
+        <li>
+            <p>{{ comment.date_added|date:'Y M d H:i' }}</p>
+            <p>{{ comment.text|linebreaks }}</p>
+        </li>
+    {% empty %}
+        <li>There are no comments for this post yet.</li>
+    {% endfor %}
+</ul>
+
+{% endblock content %}
