@@ -4,14 +4,21 @@
 
 <p>Posts: {{ post }}</p>
 <p>{{ post.content }}</p>
+<p>Author : {{ post.author }}</p>
+<p>
+    <a href="{% url 'blogs:new_comment' post.id %}">add a new comment</a>
+</p>
 
 <p>Comments:</p>
 
 <ul>
     {% for comment in comments %}
         <li>
-            <p>{{ comment.date_added|date:'Y M d H:i' }}</p>
+            <p>{{ comment.author }} {{ comment.date_added|date:'Y M d H:i' }}</p>
             <p>{{ comment.text|linebreaks }}</p>
+            <p>
+                <a href="{% url 'blogs:edit_comment' comment.id %}">edit comment</a>
+            </p>
         </li>
     {% empty %}
         <li>There are no comments for this post yet.</li>
