@@ -16,9 +16,11 @@
         <li>
             <p>{{ comment.author }} {{ comment.date_added|date:'Y M d H:i' }}</p>
             <p>{{ comment.text|linebreaks }}</p>
-            <p>
-                <a href="{% url 'blogs:edit_comment' comment.id %}">edit comment</a>
-            </p>
+            {% if comment.author == user %}
+                <p>
+                    <a href="{% url 'blogs:edit_comment' comment.id %}">edit comment</a>
+                </p>
+            {% endif %}
         </li>
     {% empty %}
         <li>There are no comments for this post yet.</li>

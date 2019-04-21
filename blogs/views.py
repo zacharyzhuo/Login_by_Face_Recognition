@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.http import HttpResponseRedirect  # 跳轉頁面
+from django.http import HttpResponseRedirect, Http404  # 跳轉頁面
 from django.urls import reverse
 from django.contrib.auth.decorators import login_required
 
@@ -25,8 +25,9 @@ def post(request, post_id):
     """Show a single post and its content and all its comment."""
     post = Post.objects.get(id=post_id)
     comments = post.comment_set.order_by("-date_added")
+    user = request.user
     # 這裡的comment_set是model裡面所取的名稱
-    context = {'post': post, 'comments': comments}
+    context = {'post': post, 'comments': comments, 'user': user}
     return render(request, 'blogs/post.html', context)
 
 
@@ -61,6 +62,7 @@ def new_comment(request, post_id):
         if form.is_valid():
             new_comment = form.save(commit=False)
             new_comment.post = post
+            new_comment.author = request.user
             new_comment.save()
             return HttpResponseRedirect(reverse('blogs:post', args=[post_id]))
 
@@ -73,6 +75,8 @@ def edit_comment(request, comment_id):
     """Edit a existing comment."""
     comment = Comment.objects.get(id=comment_id)
     post = comment.post
+    if comment.author != request.user:
+        raise Http404
     if request.method != 'POST':
         # Initial request; pre-fill form with the current comment.
         # instance引數能讓Django建立表單，並使用現有的紀錄項目物件中的資訊填滿表單
