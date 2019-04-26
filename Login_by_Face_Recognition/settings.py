@@ -52,6 +52,7 @@ INSTALLED_APPS = [
     # My apps
     'blogs',
     'users',
+    'usersface',
 ]
 
 MIDDLEWARE = [
