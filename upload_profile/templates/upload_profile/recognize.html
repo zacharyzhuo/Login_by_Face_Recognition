@@ -1,0 +1,19 @@
+{% extends "upload_profile/base.html" %}
+{% load static %} 
+
+{% block header %}
+    <h1 class="cover-heading">掃描結果</h1>
+{% endblock header %}
+
+{% block content %}
+
+    {% if themen == None %}
+        <h2>Unknown</h2>
+        <img src="{% static 'images/unnamed.jpg' %}" height="500" width="500">
+    {% else %}
+        <h2>{{ themen.user_name }}</h2>
+        <p>{{ themen.introduce }}</p>
+        <img src="{{ themen.user_image.url }}" alt="">
+    {% endif %}
+    
+{% endblock content %}
