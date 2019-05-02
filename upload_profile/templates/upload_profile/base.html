@@ -44,8 +44,9 @@
         <h3 class="masthead-brand">Face Recognizer</h3>
         <nav class="nav nav-masthead justify-content-center">
           <a class="nav-link active" href="{% url 'upload_profile:index' %}">Home</a>
-          <a class="nav-link" href="{% url 'upload_profile:add' %}">Add</a>
-          <a class="nav-link" href="{% url 'upload_profile:recognize' %}">Recognize</a>
+          <a class="nav-link" href="{% url 'upload_profile:addmyface' %}">Add my Face</a>
+          <a class="nav-link" href="{% url 'upload_profile:facelist' %}">Face List</a>
+          <a class="nav-link" href="{% url 'upload_profile:whoami' %}">Who am I</a>
         </nav>
       </div>
     </header>
@@ -63,13 +64,6 @@
       </div>
     </footer>
     </div>
-    <!-- WebRTC -->
-    <script src="https://webrtc.github.io/adapter/adapter-latest.js"></script>
-    <script src="{% static 'js/main.js' %}" async></script>
-    <script src="{% static 'js/ga.js' %}"></script>
-    <!-- Timer -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/easytimer@1.1.1/src/easytimer.js" type="module"></script>
 
   </body>
 </html>

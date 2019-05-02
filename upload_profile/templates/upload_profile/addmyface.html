@@ -1,21 +1,21 @@
 {% extends "upload_profile/base.html" %}
 
 {% block header %}
-    <h1 class="cover-heading">新增使用者資料</h1>
+    <h1 class="cover-heading">Add my Face</h1>
     <br>
 {% endblock header %}
 
 {% block content %}
 
-    <form action="{% url 'upload_profile:add' %}" enctype="multipart/form-data" method="post">
+    <form action="{% url 'upload_profile:addmyface' %}" enctype="multipart/form-data" method="post">
     {% csrf_token %}
-    <label for="user_name">名字:</label>
+    <label for="user_name">Name:</label>
     <input type="text" name="user_name">
     <br><br>
-    <label for="user_image">照片:</label>
+    <label for="user_image">Photo:</label>
     <input type="file" name="user_image">
     <br><br>
-    <label for="introduce">簡介:</label>
+    <label for="introduce">Introduce:</label>
     <textarea rows="4" cols="50" name="introduce"></textarea>
     <br><br>
     <input type="submit" value="確認">

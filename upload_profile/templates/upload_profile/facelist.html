@@ -1,0 +1,15 @@
+{% extends "upload_profile/base.html" %}
+{% load static %} 
+
+{% block header %}
+    
+{% endblock header %}
+
+{% block content %}
+
+    {% for user in users %}
+        <h2>{{ user.user_name }}</h2>
+        <img src="{{ user.user_image.url }}" alt="" height="300" width="300">
+    {% endfor %}
+    
+{% endblock content %}

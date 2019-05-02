@@ -6,8 +6,10 @@ app_name = 'upload_profile'
 urlpatterns = [
     # Home page
     path('', views.index, name='index'),
-    # upload image
-    path('add/', views.add, name='add'),
+    # add a user's face
+    path('addmyface/', views.addmyface, name='addmyface'),
+    # show all user's face
+    path('facelist/', views.facelist, name='facelist'),
     # recognize face
-    path('recognize/', views.recognize, name='recognize'),
+    path('whoami/', views.whoami, name='whoami'),
 ]
