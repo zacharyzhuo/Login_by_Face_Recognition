@@ -1,24 +1,30 @@
 {% extends "upload_profile/base.html" %}
 
 {% block header %}
-    <h1 class="cover-heading">Add my Face</h1>
-    <br>
+
+    <h1 class="ts huge header">
+        <span style="color: #3498bd;">Add my Face</span>
+    </h1>
+
 {% endblock header %}
 
 {% block content %}
-
-    <form action="{% url 'upload_profile:addmyface' %}" enctype="multipart/form-data" method="post">
-    {% csrf_token %}
-    <label for="user_name">Name:</label>
-    <input type="text" name="user_name">
-    <br><br>
-    <label for="user_image">Photo:</label>
-    <input type="file" name="user_image">
-    <br><br>
-    <label for="introduce">Introduce:</label>
-    <textarea rows="4" cols="50" name="introduce"></textarea>
-    <br><br>
-    <input type="submit" value="確認">
-    </form>
+  
+    <form class="ts form" action="{% url 'upload_profile:addmyface' %}" enctype="multipart/form-data" method="post">
+        {% csrf_token %}
+        <div class="field">
+            <label for="user_name">Name:</label>
+            <input type="text" name="user_name">
+        </div>
+        <div class="field">
+            <label for="user_image">Photo:</label>
+            <input type="file" name="user_image">
+        </div>
+        <div class="field">
+            <label for="introduce">Introduce:</label>
+            <textarea rows="4" cols="50" name="introduce"></textarea>
+        </div>
+        <input type="submit" value="確認">
+    </form>        
 
 {% endblock content %}

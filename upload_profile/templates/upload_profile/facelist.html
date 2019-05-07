@@ -3,13 +3,26 @@
 
 {% block header %}
     
+    <h1 class="ts huge header">
+        <span style="color: #3498bd;">Face List</span>
+    </h1>
+
 {% endblock header %}
 
 {% block content %}
 
-    {% for user in users %}
-        <h2>{{ user.user_name }}</h2>
-        <img src="{{ user.user_image.url }}" alt="" height="300" width="300">
-    {% endfor %}
+    <div class="ts doubling four cards">
+        {% for user in users %}
+            <div class="ts card">
+                <div class="content">
+                    <div class="header">{{ user.user_name }}</div>
+                    <div class="description">{{ user.introduce }}</div>
+                </div>
+                <div class="image">
+                    <img src="{{ user.user_image.url }}">
+                </div>
+            </div>
+        {% endfor %}
+    </div>
     
 {% endblock content %}

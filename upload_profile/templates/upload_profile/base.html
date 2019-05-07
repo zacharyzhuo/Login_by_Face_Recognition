@@ -1,70 +1,114 @@
-{% load static %} 
+{% load static %}
+<!DOCTYPE html>
+<html>
 
-<!doctype html>
-<html lang="en">
-  <head>
+<head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
-    <meta name="generator" content="Jekyll v3.8.5">
+
     <title>Face Recognizer</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/cover/">
-
-    <!-- Bootstrap core CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    
-    <style>
-      .bd-placeholder-img {
-        font-size: 1.125rem;
-        text-anchor: middle;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
-        user-select: none;
-      }
-
-      @media (min-width: 768px) {
-        .bd-placeholder-img-lg {
-          font-size: 3.5rem;
+    <link rel="stylesheet" href="https://hpcslag.github.io/hexo-theme-morgan/demo/css/tocas.css">
+    <link rel="stylesheet" href="https://hpcslag.github.io/hexo-theme-morgan/demo/css/animate.css">
+    <link rel="stylesheet" href="https://hpcslag.github.io/hexo-theme-morgan/demo/css/style.css">
+    <style type="text/css">
+        a.title-link:hover {
+            color: #34b2db !important;
         }
-      }
+
+        a.title-link:active {
+            color: #2075c1 !important;
+        }
+
+        #menu-color-id {
+            background: #f7f7f7;
+        }
+
+        #menu-color-id a {
+            color: #5a5a5a;
+        }
     </style>
+    <script src="https://hpcslag.github.io/hexo-theme-morgan/demo/js/tocas.js"></script>
 
-    <!-- Custom styles for this template -->
-    <link href="{% static 'css/cover.css' %}" rel="stylesheet">
 
-  </head>
+</head>
 
-  <body class="text-center">
-    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
-    <header class="masthead mb-auto">
-      <div class="inner">
-        <h3 class="masthead-brand">Face Recognizer</h3>
-        <nav class="nav nav-masthead justify-content-center">
-          <a class="nav-link active" href="{% url 'upload_profile:index' %}">Home</a>
-          <a class="nav-link" href="{% url 'upload_profile:addmyface' %}">Add my Face</a>
-          <a class="nav-link" href="{% url 'upload_profile:facelist' %}">Face List</a>
-          <a class="nav-link" href="{% url 'upload_profile:whoami' %}">Who am I</a>
-        </nav>
-      </div>
-    </header>
+<body>
+    <!-- navigation -->
 
-    <main role="main" class="inner cover">
+    <div class="ts fluid basic link big menu" id="menu-color-id">
 
-      {% block header %}{% endblock header %}
-      {% block content %}{% endblock content %}
+        <!-- ejs : align to post page or index page -->
 
-    </main>
+        <div class="ts narrow container" style=" padding-left: 25px; ">
 
-    <footer class="mastfoot mt-auto">
-      <div class="inner">
-        <p></p>
-      </div>
-    </footer>
+            <a class="item" href="{% url 'upload_profile:index' %}">Home</a>
+            <a class="item" href="{% url 'upload_profile:addmyface' %}">Add my Face</a>
+            <a class="item" href="{% url 'upload_profile:facelist' %}">Face List</a>
+            <a class="item" href="{% url 'upload_profile:whoami' %}">Who am I</a>
+
+        </div>
     </div>
+    <!-- the end of navigation -->
 
-  </body>
+    <!-- big bang title -->
+    <div class="ts padded horizontally fitted fluid slate" style="background-color: #f7f7f7;">
+        <!-- ejs : align to post page or index page -->
+
+        <div class="ts narrow container relaxed stackable grid" id="big-bang-title" style=" padding-left: 35px; ">
+
+            <!-- Title -->
+            <h1 class="ts eleven wide column header be-center-h1">
+                <span style="color: #404040;" id="big-title">Face Recognizer</span>
+                <div class="sub header" id="slogan-bar" style=" margin-top: 15px; color: #404040;"></div>
+            </h1>
+            <!-- the end of title -->
+        </div>
+    </div>
+    <!-- the end of big bang title -->
+
+
+    <!-- content section -->
+    <div class="ts narrow container" style=" margin-bottom: 35px; ">
+        <div style=" padding-top: 35px; ">
+            <!-- 與上面容器隔出距離 -->
+
+            <!-- left section -->
+            <div class="column" style=" padding: 35px; ">
+              
+              {% block header %}{% endblock header %}
+              {% block content %}{% endblock content %}
+
+              <!-- / the end of articles -->
+            </div>
+            <!-- / left section -->
+
+        </div>
+    </div>
+    <!-- the end of content section -->
+
+    <!-- footer -->
+    <div class="ts attached secondary segment">
+        <div class="ts narrow container">
+            <br>
+            <div class="ts large center aligned header">
+
+                <div class="smaller sub header">
+
+                    Style-Framework <a href="https://tocas-ui.com">&nbsp;Tocas-UI</a> designs by <a
+                        href="https://github.com/YamiOdymel">&nbsp;@YamiOldmel</a>
+
+                </div>
+            </div>
+            <br>
+        </div>
+    </div>
+    <!-- the end of footer -->
+    <script type="text/javascript">
+
+        const slogans = ["Hello, this is face recognizer ", "一個臉部辨識demo", "你可以上傳你的照片", "然後讓我來辨識吧!"];
+    </script>
+    <script src="https://hpcslag.github.io/hexo-theme-morgan/demo/js/script.js"></script>
+</body>
+
 </html>
-

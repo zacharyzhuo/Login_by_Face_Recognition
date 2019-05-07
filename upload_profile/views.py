@@ -27,16 +27,16 @@ def facelist(request):
 
 def whoami(request):
     whosface = Facedect(User).face_names  # return a name list
-    print("whosface" + str(whosface))
+    print("1 whosface : " + str(whosface))
 
     if len(whosface) != 0:
         for user in User.objects.all():
-            print("user:" + str(user))
-            print("whosface[0]" + whosface[0])
             if whosface[0] == user.user_name:
+                print("2 whosface[0] : " + whosface[0])
+                print("3 user : " + user.user_name)
                 themen = user
     else:
         themen = None
 
-    print(themen)
+    print("4 themen : " + str(themen))
     return render(request, 'upload_profile/whoami.html', locals())

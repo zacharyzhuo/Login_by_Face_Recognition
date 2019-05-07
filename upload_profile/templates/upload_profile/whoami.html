@@ -2,18 +2,45 @@
 {% load static %} 
 
 {% block header %}
-    <h1 class="cover-heading">Result</h1>
+    {% if themen == None %}
+        <h1 class="ts huge header">
+            <span style="color: #3498bd;">I don't know who you are!</span>
+        </h1>
+    {% else %}
+        <h1 class="ts huge header">
+            <span style="color: #3498bd;">You are</span>
+        </h1>
+    {% endif %}
+    
 {% endblock header %}
 
 {% block content %}
+    <div class="ts doubling four cards">
+        {% if themen == None %}
+            <div class="ts card">
+                <div class="image">
+                    <img src="{% static 'images/unnamed.jpg' %}" height="300" width="300">
+                </div>
+                <div class="content">
+                    <div class="header">Unknown</div>
+                    <div class="description">
+                        <p>{{ themen.introduce }}</p>
+                    </div>
+                </div>
+            </div>
+        {% else %}
+            <div class="ts card">
+                <div class="image">
+                    <img src="{{ themen.user_image.url }}">
+                </div>
+                <div class="content">
+                    <div class="header">{{ themen.user_name }}</div>
+                    <div class="description">
+                        <p>{{ themen.introduce }}</p>
+                    </div>
+                </div>
+            </div>
+        {% endif %} 
+    </div>
 
-    {% if themen == None %}
-        <h2>Unknown</h2>
-        <img src="{% static 'images/unnamed.jpg' %}" height="500" width="500">
-    {% else %}
-        <h2>{{ themen.user_name }}</h2>
-        <p>{{ themen.introduce }}</p>
-        <img src="{{ themen.user_image.url }}" alt="">
-    {% endif %}
-    
 {% endblock content %}
